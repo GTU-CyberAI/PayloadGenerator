@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# OPENAI_API_KEY'i ortam değişkeninden alabilir ya da doğrudan buraya yazabilirsin (güvenli değil)
+# Ensure the OpenAI API key is set in env file
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_payload(context):

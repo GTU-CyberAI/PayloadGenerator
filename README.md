@@ -104,8 +104,8 @@ You can open these files to inspect the generated injection attempts.
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/injection-generator.git
-   cd injection-generator/my_generator
+   git clone https://github.com/GTU-CyberAI/PayloadGenerator.git
+   cd PayloadGenerator
    ```
 
 2. **Get the web driver for selenium**:
@@ -113,29 +113,37 @@ You can open these files to inspect the generated injection attempts.
    [!] This project uses the Google chrome driver.
 
    You have to download the [chrome driver](http://chromedriver.chromium.org/downloads) for selenium.  
-    And you have to move downloaded driver file to `drivers` directory.
+    And you have create `drivers` directory and move downloaded driver file to this directory.
 
-```
-  PS C:\injection-generator\PayloadGenerator> mkdir drivers
-  PS C:\injection-generator\PayloadGenerator> mv chromedriver.exe drivers
-  PS C:\injection-generator\PayloadGenerator> ls .\drivers\
-```
+   ```
+     PS C:\injection-generator\PayloadGenerator> mkdir drivers
+     PS C:\injection-generator\PayloadGenerator> mv chromedriver.exe drivers
+     PS C:\injection-generator\PayloadGenerator> ls .\drivers\
+   ```
 
 3. **Get html checker (tidy)**:
 
    [!] This project uses the `tidy 5.4.0 win64`.
 
-And you have to move the `tidy.exe` file to the `C:\tools\tidy` directory (the default path is set as `C:\tools\tidy` in the `config.ini` file to avoid permission issues that may occur if it is placed directly under the project’s `tools` folder).
+   And you have to move the `tidy.exe` file to the `C:\tools\tidy` directory (the default path is set as `C:\tools\tidy` in the `config.ini` file to avoid permission issues that may occur if it is placed directly under the project’s `tools` folder (tools directory should be created first if it doesn't exist.)).
 
 4. **Install required packages**:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Add your OpenAI API key to a .env file in the project root**:
+
+   You must create a `.env` file in the root directory containing:
+
+   ```env
+   OPENAI_API_KEY=your-openai-key-here
+   ```
 
 6. **Run the project from the outermost (root) directory**:
 
-Make sure you are in the root directory of the project (`injection-generator/my_generator`) before running the following command:
+   Make sure you are in the root directory of the project (`injection-generator/my_generator`) before running the following command:
 
 ```bash
 python -m src.generator
